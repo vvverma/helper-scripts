@@ -1,0 +1,34 @@
+# !/bin/bash
+# file: /bin/chngprj.sh
+
+CURR_DIR=`pwd`
+BASE_DIR="/home/vvverma/projects/"
+DIRNAME=$1
+
+if [[ $CURR_DIR != *$BASE_DIR* ]]
+then
+    echo "Run this script inside $BASE_DIR"
+    exit 1
+fi
+
+
+if  [[ $DIRNAME == '' ]]
+then
+	echo "Please enter a valid project name"
+	exit 1
+fi
+
+CURR_PROJ=${CURR_DIR:${#BASE_DIR}}
+PROJ=${CURR_PROJ%%/*}
+
+
+cd $BASE_DIR
+if [ ! -d "$DIRNAME" ]
+then
+    echo "Project $DIRNAME does not exist"
+	exit 1
+else
+	DEST_DIR=${CURR_DIR/$PROJ/$DIRNAME}
+    cd $DEST_DIR
+fi
+
