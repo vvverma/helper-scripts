@@ -1,5 +1,5 @@
-# !/bin/bash
-# 
+#!/bin/sh
+#
 #Keep this file in home/<user>/bin dir
 #
 # file: /bin/updprj
@@ -17,5 +17,3 @@ cd ..
 done
 
 echo "Finished updating all projects...."
-
-

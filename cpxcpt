@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+#Keep this file in home/<user>/bin dir
+#
+# file: /bin/cpxcpt
+
+if [ $# -ne 1 ]; then
+  echo "Usage: cpxcpt filename"
+  echo "filename -> which should not be copied to /home/$USER/bin"
+  exit 255
+fi
+
+filename=$1
+
+for i in *
+do
+if [[ "$i" == "$filename" ]]; then
+  continue
+fi;
+cp $i $HOME/bin
+
+if [[ $? -eq 0 ]]; then
+  echo "$i copied"
+fi
+done
