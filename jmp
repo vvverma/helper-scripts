@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#Keep this file in home/<user>/bin dir
+#
+# file: /bin/jmp
+
+if [[ ( $# -ne 1 ) && ( -z $1 ) ]]; then
+	echo "Usage: jmp <directory name >"
+	echo "directory you want to jump back"
+	exit 255
+fi
+
+OLDIFS=$IFS #Internal field seperator
+IFS=/
+DIR=$1
+TEMP=`pwd`
+CURR=($PWD)
+IFS=OLDIFS
+
+if [[ "$DIR" == "/" ]]; then
+	cd /
+else
+
+	for i in "${CURR[@]}"
+	do
+		if [[ "$i" == "$DIR" ]]; then
+			NEXT+="$i"
+			break	
+		else
+			NEXT+="$i/"
+		fi
+	done
+
+	if [[ "$NEXT" == "$TEMP/" ]]; then
+		echo "$DIR : No such directory found"
+	else
+		cd $NEXT
+	fi
+
+fi
+unset NEXT
+

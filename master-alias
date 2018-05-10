@@ -5,3 +5,4 @@
 # file: /bin/master-alias
 
 alias c='clear'
+alias jmp='. jmp'

@@ -8,10 +8,65 @@
 	"buffers":
 	[
 		{
+			"file": "cpimg",
+			"settings":
+			{
+				"buffer_size": 484,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cpxcpt",
+			"settings":
+			{
+				"buffer_size": 357,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "fileinfo",
+			"settings":
+			{
+				"buffer_size": 722,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "master-alias",
+			"settings":
+			{
+				"buffer_size": 97,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "nwprj",
+			"settings":
+			{
+				"buffer_size": 707,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "updprj",
+			"settings":
+			{
+				"buffer_size": 284,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "chprj",
 			"settings":
 			{
-				"buffer_size": 532,
+				"buffer_size": 534,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -27,10 +82,10 @@
 			}
 		},
 		{
-			"contents": "vvverma@laird:~/personal/helper-scripts$                                                                                                                                      \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n",
+			"contents": "vvverma@laird:~/personal/helper-scripts$                                                                                                                                                             \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n                                                                                                                                                                                                     \n",
 			"settings":
 			{
-				"buffer_size": 3675,
+				"buffer_size": 4950,
 				"line_ending": "Unix",
 				"name": "Terminal (bash)",
 				"read_only": true,
@@ -129,24 +184,166 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "chprj",
-					"semi_transient": true,
+					"file": "cpimg",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 532,
+						"buffer_size": 484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								532,
-								532
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "cpxcpt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "fileinfo",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "master-alias",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 97,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								81,
+								81
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "nwprj",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "updprj",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
 							]
 						],
 						"settings":
@@ -159,6 +356,34 @@
 					},
 					"stack_index": 1,
 					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "chprj",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
 				}
 			]
 		},
@@ -167,7 +392,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 7,
 					"semi_transient": false,
 					"settings":
 					{
@@ -382,8 +607,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1,
+								1
 							]
 						],
 						"settings":
@@ -411,7 +636,7 @@
 							"terminal_view_last_cursor_pos":
 							[
 								0,
-								0
+								1
 							],
 							"word_wrap": false
 						},
@@ -419,15 +644,15 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 8,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3675,
+						"buffer_size": 4950,
 						"regions":
 						{
 							"1,30":
@@ -436,8 +661,8 @@
 								"regions":
 								[
 									[
-										3675,
-										3675
+										4950,
+										4950
 									]
 								],
 								"scope": "terminalview.black_blue"
@@ -448,8 +673,8 @@
 								"regions":
 								[
 									[
-										3675,
-										3675
+										4950,
+										4950
 									]
 								],
 								"scope": "terminalview.black_blue"
@@ -460,8 +685,8 @@
 								"regions":
 								[
 									[
-										3675,
-										3675
+										4950,
+										4950
 									]
 								],
 								"scope": "terminalview.black_blue"
@@ -507,7 +732,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -589,7 +814,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
