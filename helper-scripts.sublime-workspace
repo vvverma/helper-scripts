@@ -1,0 +1,605 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "chprj",
+			"settings":
+			{
+				"buffer_size": 532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": " \n",
+			"settings":
+			{
+				"buffer_size": 2,
+				"line_ending": "Unix",
+				"name": "Terminal (bash)",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "vvverma@laird:~/personal/helper-scripts$                                                                                                                                      \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n                                                                                                                                                                              \n",
+			"settings":
+			{
+				"buffer_size": 3675,
+				"line_ending": "Unix",
+				"name": "Terminal (bash)",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ter",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 238.0,
+		"history":
+		[
+			"Package Control.sublime-package",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"help",
+			"install ",
+			"install package control",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/vvverma/personal/helper-scripts"
+	],
+	"file_history":
+	[
+		"/home/vvverma/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/home/vvverma/personal/helper-scripts"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "chprj",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2,
+						"regions":
+						{
+							"1,0":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,14":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,22":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,32":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,46":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,64":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,66":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,7":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,80":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"1,98":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,0":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,14":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,22":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,32":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,46":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,64":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							},
+							"3,7":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										2,
+										2
+									]
+								],
+								"scope": "terminalview.black_green"
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_complete_commit_on_tab": false,
+							"caret_style": "blink",
+							"color_scheme": "Packages/TerminalView/TerminalView.hidden-tmTheme",
+							"draw_centered": false,
+							"draw_indent_guides": false,
+							"draw_white_space": "none",
+							"gutter": false,
+							"highlight_line": false,
+							"scroll_past_end": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"terminal_view": true,
+							"terminal_view_activate_args":
+							{
+								"cmd": "/bin/bash -l",
+								"cwd": "/home/vvverma/personal/helper-scripts",
+								"keep_open": false,
+								"syntax": null,
+								"title": "Terminal (bash)"
+							},
+							"terminal_view_last_cursor_pos":
+							[
+								0,
+								0
+							],
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3675,
+						"regions":
+						{
+							"1,30":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										3675,
+										3675
+									]
+								],
+								"scope": "terminalview.black_blue"
+							},
+							"1,46":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										3675,
+										3675
+									]
+								],
+								"scope": "terminalview.black_blue"
+							},
+							"1,9":
+							{
+								"flags": 272,
+								"regions":
+								[
+									[
+										3675,
+										3675
+									]
+								],
+								"scope": "terminalview.black_blue"
+							}
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_complete_commit_on_tab": false,
+							"caret_style": "blink",
+							"color_scheme": "Packages/TerminalView/TerminalView.hidden-tmTheme",
+							"draw_centered": false,
+							"draw_indent_guides": false,
+							"draw_white_space": "none",
+							"gutter": false,
+							"highlight_line": false,
+							"scroll_past_end": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"terminal_view": true,
+							"terminal_view_activate_args":
+							{
+								"cmd": "/bin/bash -l",
+								"cwd": "/home/vvverma/personal/helper-scripts",
+								"keep_open": false,
+								"syntax": null,
+								"title": "Terminal (bash)"
+							},
+							"terminal_view_last_cursor_pos":
+							[
+								0,
+								41
+							],
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.562821833162,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
