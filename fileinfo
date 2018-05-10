@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+#Keep this file in /home/<user>/bin
+#
+#file:/bin/fileinfo
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <filename>"
+    echo "A script to give info about given file"
+    exit 255
+fi
+
+echo -n "$1 "
+
+echo -n " : Exit status $?"
+
+if [ ! -e $1 ]; then
+    echo "$1 Does not exit"
+    exit 1
+fi
+    
+if [ -f $1 ]; then
+    echo -n " : File"
+elif [ -d $1 ]; then
+    echo -n " : Directory"
+fi
+    
+if [ -x $1 ]; then
+    echo -n " : Executable"
+fi
+
+if [ -r $1 ]; then
+    echo -n " : Readable"
+fi
+
+if [ -w $1 ]; then
+    echo -n " : Writeable"
+fi
+
+if [ -c $1 ]; then
+    echo -n " : Character Device" 
+fi
+
+if [ -b $1 ]; then
+    echo -n " : Block Device"
+fi
+
+if [ ! -s $1 ]; then
+    echo -n " : Empty file"
+fi
+
+echo
