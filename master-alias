@@ -1,5 +1,8 @@
-#! /bin/bash
-#file: master-alias.sh
+# !/bin/bash
+# 
+#Keep this file in home/<user>/bin dir
+#
+# file: /bin/master-alias
 
 alias chprj='. /home/vvverma/bin/chprj.sh'
 alias c='clear'

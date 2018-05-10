@@ -1,4 +1,9 @@
 # !/bin/bash
+# 
+#Keep this file in home/<user>/bin dir
+#
+# file: /bin/updprj
+
 
 echo "Updating all projects...."
 cd /home/vvverma/projects; \

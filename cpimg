@@ -1,4 +1,8 @@
-#!/bin/bash
+# !/bin/bash
+# 
+#Keep this file in home/<user>/bin dir
+#
+# file: /bin/cpimg
 
 CURR_DIR=`pwd`
 DEST_DIR="/home/vvverma/public_html"
