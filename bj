@@ -17,8 +17,8 @@ TEMP=`pwd`
 CURR=($PWD)
 IFS=$OLDIFS
 
-if [[ "$DIR" == "/" ]]; then
-	cd /
+if [[ ("$DIR" == "/") || ("$DIR" == "..") ]]; then
+	cd $DIR
 else
 
 	for i in "${CURR[@]}"
