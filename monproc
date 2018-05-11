@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+#Keep this file in home/<user>/bin dir
+#Run this file in background
+# no need to source
+# file: /bin/monproc
+
+#script to monitor the proc dir and notify user of closing or opening of new process
+#dependcies need alert alias mentioned in master alias
+#no input args needed 
+#script will run in background 
+#find a way to stop the script 
+#create LIST_PID,LIST_CORRS_PID_NAME,PID_MONITOR_LIST, LIST_MONITOR_PID_NAME
+#check the cmp size of list_pid and monitor_pid_list,
+# if process removed monitor_list < list_pid
+#		 THEN GET NAME FROM DIFF BETWEEN PID_NAME AND PID MON LIST
+# if process added monitor_list> list_pid 
+#        THEN GET NAME FROM DIFF BETWEEN PID_NAME AND PID MON LIST
+#then notify if notify_flag not 0
+#sleep
+#repeat
