@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+#Keep this file in home/<user>/bin dir
+# Forward jump capability to directory
+# file: /bin/fj
+
+#implement cannot find logic ==done
+#implement variable max depth optimization
+
+
+if [[ ( $# -ne 1 ) || ( -z $1 ) || ( `echo $1 | grep "/"` ) ]]; then
+	echo "Usage: jmp <directory name >"
+	echo "directory you want to jump forward"
+	echo "directory name should not start with \"/\" "
+	return
+fi
+
+VAR=(`find . -maxdepth 10 -type d -name "$1" -print 2> >(grep -v '*/\.* \| Permission denied' >&2)`)
+
+count=1
+
+if [[ -z ${VAR[@]} ]]; then
+	echo "Not found"
+
+elif [[ ${#VAR[@]} -eq 1 ]]; then
+	NXT=${VAR[0]}
+	echo $NXT
+    cd $NXT
+
+else
+
+	for i in "${VAR[@]}"
+		do
+			
+			echo "$count $i"
+			let count++
+		done
+
+	echo -n "Enter choice: "
+	read choice
+
+	if [ $choice -le ${#VAR[@]} ]; then
+		let choice--
+		NXT=${VAR[choice]}
+		echo "$NXT"
+		cd $NXT
+	else
+		echo "Invalid choice"
+	fi
+fi
+unset NXT
+unset choice
+unset VAR
+unset count
+unset i

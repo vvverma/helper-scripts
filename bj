@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 #Keep this file in home/<user>/bin dir
-#
-# file: /bin/jmp
+# Backward jump capabilty
+# file: /bin/bj
 
-if [[ ( $# -ne 1 ) && ( -z $1 ) ]]; then
+if [[ ( $# -ne 1 ) || ( -z $1 ) ]]; then
 	echo "Usage: jmp <directory name >"
 	echo "directory you want to jump back"
-	exit 255
+	return
 fi
 
 OLDIFS=$IFS #Internal field seperator
@@ -15,7 +15,7 @@ IFS=/
 DIR=$1
 TEMP=`pwd`
 CURR=($PWD)
-IFS=OLDIFS
+IFS=$OLDIFS
 
 if [[ "$DIR" == "/" ]]; then
 	cd /
@@ -39,4 +39,7 @@ else
 
 fi
 unset NEXT
-
+unset CURR
+unset TEMP
+unset i
+unset DIR
