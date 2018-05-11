@@ -7,3 +7,4 @@
 alias c='clear'
 alias bj='. bj'
 alias fj='. fj'
+source ~/bin/_bj

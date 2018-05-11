@@ -1,0 +1,27 @@
+#declare function to pass to `complete'
+_bj()
+{
+    # declare variable `cur' (holds string to complete) as local
+    local cur
+
+    # initialize completion (abort on fail)
+    _init_completion || return
+
+    # if string to complete (`cur') begins with `-' (option)
+    if [[ "$cur" == -* ]] ; then
+        # complete to the following strings, if they start with `cur`
+        COMPREPLY=( $( compgen -W '-a -b -c --foo --bar' -- "$cur" ) )
+    else
+        # otherwise, complete to elements in current directory that begin with `cur'
+        #_filedir -d
+
+		OLDIFS=$IFS #Internal field seperator
+		IFS=/
+		CURR=($PWD)
+		IFS=$OLDIFS
+		echo
+		echo ${CURR[@]}
+fi
+
+# if declaring the function was successful, use it when the command is `myscript'
+} && complete -F _bj bj
