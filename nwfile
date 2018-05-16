@@ -1,0 +1,64 @@
+#!/bin/bash
+# @author: Vishal Verma
+# @date: 05/16/18
+# Keep this file in home/<user>/bin dir
+# file: /bin/nwfile
+
+## Check if the new created file exits
+chk_file_exits(){
+
+if [[  -f $1 ]]; then
+	echo "File: $1 already exits"
+	echo "Please enter a new file name and retry"
+	rc=1
+else
+	rc=0
+fi
+}
+
+## Print the prolog for new script
+print_prolog(){
+    today=$(date +%m-%d-%Y)
+	echo "#!/bin/bash" >> $1
+	echo "# @author: $2" >> $1
+    echo "# @date: $today" >> $1
+    echo "# Keep this file in home/<user>/bin dir" >> $1
+    echo "# file: /bin/$1" >> $1
+}
+
+## print usage for the new script (optional)
+print_usage(){
+	echo " " >> $1 
+	echo "###Main" >> $1
+	echo "if [[ ( \$# -ne 1 ) || ( -z $1 ) ]]; then" >> $1
+	echo "    echo \"Usage: $2\"" >> $1
+	echo "    echo \"Description: $3\"" >> $1
+	echo "    return" >> $1
+	echo "fi" >> $1
+}
+
+##main
+echo -n "Enter the new script filename: "
+read  FN
+
+chk_file_exits $FN
+
+if [[ $rc -eq 0 ]]; then
+    echo -n "Enter the author: "
+	read AUTHOR
+	print_prolog $FN "$AUTHOR"
+	
+    echo -n "Do you want to pass command line argument [y/n] (Default: n): "
+	read  ANS
+
+	if [[ "$ANS" = "y" ]]; then
+		echo -n "Enter usage of command line script: "
+		read USAGE
+		echo -n "Enter short Description of the script: "
+		read DESP
+		print_usage $FN "$USAGE" "$DESP"	
+	fi
+	chmod +x $FN
+	echo "New file $FN created"
+fi
+

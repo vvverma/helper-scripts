@@ -1,11 +1,12 @@
 #!/bin/bash
-#
-#Keep this file in home/<user>/bin dir
+# @author: Vishal Verma
+# @date: 05/16/18
+# Keep this file in home/<user>/bin dir
 # Backward jump capabilty
 # file: /bin/bj
 
 if [[ ( $# -ne 1 ) || ( -z $1 ) ]]; then
-	echo "Usage: jmp <directory name >"
+    echo "Usage: jmp <directory name >"
 	echo "directory you want to jump back"
 	return
 fi
