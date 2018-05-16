@@ -1,0 +1,40 @@
+#!/bin/bash
+# @author: Vishal Verma
+# @date: 05-16-2018
+# Keep this file in home/<user>/bin dir
+# file: /bin/xchng-rate
+ 
+getCurrencyExchangeRate(){
+    # $1 = base (from) currency
+    # $2 = target (lookup, to) currency
+    if ! [ -z "$1" ] && ! [ -z "$2" ]; then
+        uri="https://www.xe.com/currencyconverter/convert/?Amount=1&From=$1&To=$2"
+        value=`curl -s --connect-timeout 60 --max-time 60 $uri | perl -l -0777 -ne 'print $3 if /<span class=(.*?)uccResultAmount(.*?)>\s*(.*?)\s*<\/span>/si'`
+		remitly="https://www.remitly.com/us/en/india"
+		
+        if ! [ -z "$value" ]; then
+            echo "CURRENCY REPORT" "1 $1 = $value $2" | ssmtp xxxxxxxxxx@txt.att.net
+            echo "CURRENCY REPORT" "1 $1 = $value $2" | ssmtp xxxxxxxxxx@txt.att.net
+
+ 
+            # or if you want to output directly to the terminal
+            # remove the `> /dev/null 2>&1 &` part in the usage
+            # note that it'll become blocking until the curl is
+            # done, so maybe reduce 60 timeout if you have slow
+            # internet connection (as me), otherwise no worries
+            # printf "\033[0;33m== CURRENCY REPORT ==\033[0m\n"
+            # echo "1 $1 = $value $2"
+        fi
+    fi
+}
+
+
+###Main
+if [[  $# -ne 2 ]]; then
+    echo "Usage: xchng-rate <From> <TO>"
+    echo "Description: Get the latest currency rate using xchng-rate"
+    return
+fi
+
+getCurrencyExchangeRate $1 $2
+
