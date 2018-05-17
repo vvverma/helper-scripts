@@ -8,15 +8,25 @@ getCurrencyExchangeRate(){
     # $1 = base (from) currency
     # $2 = target (lookup, to) currency
     if ! [ -z "$1" ] && ! [ -z "$2" ]; then
-        uri="https://www.xe.com/currencyconverter/convert/?Amount=1&From=$1&To=$2"
-        value=`curl -s --connect-timeout 60 --max-time 60 $uri | perl -l -0777 -ne 'print $3 if /<span class=(.*?)uccResultAmount(.*?)>\s*(.*?)\s*<\/span>/si'`
-		remitly="https://www.remitly.com/us/en/india"
-		
-        if ! [ -z "$value" ]; then
-            echo "CURRENCY REPORT" "1 $1 = $value $2" | ssmtp xxxxxxxxxx@txt.att.net
-            echo "CURRENCY REPORT" "1 $1 = $value $2" | ssmtp xxxxxxxxxx@txt.att.net
+        xe_uri="https://www.xe.com/currencyconverter/convert/?Amount=1&From=$1&To=$2"
+	remitly_uri="https://www.remitly.com/us/en/india"
+	xe_value=`curl -s --connect-timeout 60 --max-time 60 $xe_uri | perl -l -0777 -ne 'print $3 if /<span class=(.*?)uccResultAmount(.*?)>\s*(.*?)\s*<\/span>/si'`
+	remitly_value=`curl -s --connect-timeout 60 --max-time 60 $remitly_uri | perl -l  -ne 'print $3 if /<span class=(.*?)remitly-rate(.*?)>\s*(.*?)\s*<\/span>/'| cut -c 4- | sort| uniq`
+	echo $xe_value
+	echo $remitly_value
+	mssg1="XE Currency-> 1 $1= $xe_value $2"
+	mssg2=" Remitly -> 1 $1 = $remitly_value $2 (Exp) (Eco)"
+	echo " ">> temp.txt
+	echo "<<<<Xchng Rate Today>>>>" >> temp.txt
+	echo " " >> temp.txt
+	echo $mssg1 >> temp.txt
+	echo " ">> temp.txt
+	echo $mssg2 >> temp.txt
 
- 
+	if  [ -n "$xe_value" ] && [ -n "$remitly_value" ]; then
+            cat temp.txt | ssmtp XXXXXXXXXX@txt.att.net
+            cat temp.txt | ssmtp XXXXXXXXXX@txt.att.net
+	    rm temp.txt
             # or if you want to output directly to the terminal
             # remove the `> /dev/null 2>&1 &` part in the usage
             # note that it'll become blocking until the curl is
