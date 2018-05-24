@@ -3,48 +3,119 @@
 # @date: 05-16-2018
 # Keep this file in home/<user>/bin dir
 # file: /bin/xchng-rate
- 
-getCurrencyExchangeRate(){
-    # $1 = base (from) currency
-    # $2 = target (lookup, to) currency
-    if ! [ -z "$1" ] && ! [ -z "$2" ]; then
-        xe_uri="https://www.xe.com/currencyconverter/convert/?Amount=1&From=$1&To=$2"
-	remitly_uri="https://www.remitly.com/us/en/india"
-	xe_value=`curl -s --connect-timeout 60 --max-time 60 $xe_uri | perl -l -0777 -ne 'print $3 if /<span class=(.*?)uccResultAmount(.*?)>\s*(.*?)\s*<\/span>/si'`
-	remitly_value=`curl -s --connect-timeout 60 --max-time 60 $remitly_uri | perl -l  -ne 'print $3 if /<span class=(.*?)remitly-rate(.*?)>\s*(.*?)\s*<\/span>/'| cut -c 4- | sort| uniq`
-	echo $xe_value
-	echo $remitly_value
-	mssg1="XE Currency-> 1 $1= $xe_value $2"
-	mssg2=" Remitly -> 1 $1 = $remitly_value $2 (Exp) (Eco)"
-	echo " ">> temp.txt
-	echo "<<<<Xchng Rate Today>>>>" >> temp.txt
-	echo " " >> temp.txt
-	echo $mssg1 >> temp.txt
-	echo " ">> temp.txt
-	echo $mssg2 >> temp.txt
+# TODO= Add feature for auto-dectach the free sms gateway for numbers
+get_curr_xchangerate(){
 
-	if  [ -n "$xe_value" ] && [ -n "$remitly_value" ]; then
-            cat temp.txt | ssmtp XXXXXXXXXX@txt.att.net
-            cat temp.txt | ssmtp XXXXXXXXXX@txt.att.net
-	    rm temp.txt
-            # or if you want to output directly to the terminal
-            # remove the `> /dev/null 2>&1 &` part in the usage
-            # note that it'll become blocking until the curl is
-            # done, so maybe reduce 60 timeout if you have slow
-            # internet connection (as me), otherwise no worries
-            # printf "\033[0;33m== CURRENCY REPORT ==\033[0m\n"
-            # echo "1 $1 = $value $2"
-        fi
+    xe_uri="https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=INR"
+	remitly_uri="https://www.remitly.com/us/en/india"
+
+    #extract dollar rate from xe website
+	xe_value=`curl -s --connect-timeout 60 --max-time 60 $xe_uri | perl -l -0777 -ne 'print $3 if /<span class=(.*?)uccResultAmount(.*?)>\s*(.*?)\s*<\/span>/si'`
+    #extract dollar rate from remitly website
+    remitly_value=(`curl -s --connect-timeout 60 --max-time 60 $remitly_uri | perl -l  -ne 'print "$3 INR" if /<span class=(.*?)remitly-rate(.*?)>\s*(.*?)\s*<\/span>/'| cut -c 4- | sort| uniq`)
+
+    if [[ "$DEBUG" == "1" ]]; then
+
+        echo "DEBUG: get_curr_xchangerate"
+        echo "DEBUG: $xe_value"
+        echo "DEBUG: ${remitly_value[@]}"
     fi
+}
+
+construct_message(){
+
+    headline="Xchange Currency"
+    mssg_xe_title="##XE Currency##"
+    mssg_xe_value="1 USD = $xe_value INR"
+    mssg_rem_title="##Remitly##"
+    mssg_rem_value="1 USD = ${remitly_value[0]} ${remitly_value[1]} (Exp) ${remitly_value[2]} ${remitly_value[3]} (Eco)"
+
+    if [[ -f "msg" ]]; then
+
+        if [[ "$DEBUG" == "1" ]]; then
+           echo "DEBUG: msg.txt exists, deleting it"
+        fi
+        rm msg
+    fi
+
+    echo "$headline" >> msg
+    echo   >> msg
+    echo "$mssg_xe_title" >> msg
+    echo "$mssg_xe_value" >> msg
+    echo "$mssg_rem_title">> msg
+    echo "$mssg_rem_value">> msg
+
+    if [[ "$DEBUG" == "1" ]]; then
+
+        echo "DEBUG: construct_message"
+        cat  msg
+    fi
+}
+
+send_message(){
+
+    while read name surname number carrier || [[ ( -n "$name" ) && ( -n "$surname" ) && ( -n "$number" ) && ( -n "$carrier")]];
+    do
+        if [[ "$carrier" == "AT" ]]; then
+            recipient="$number@txt.att.net"
+        elif [[ "$carrier" == "TMOB" ]]; then
+            recipient="$number@tmomail.net"
+        fi
+
+        if [[ ${name:0:1} = "#" ]]; then
+            echo "Disabled Numbers -> $name $surname $number"
+            continue
+        fi
+
+        mssg_bye="See You Tomorrow, $name!"
+        cp msg _msg_$surname
+        echo "$mssg_bye" >> _msg_$surname
+        char_limit=134
+        message_size=$(cat _msg_$surname | wc -m)
+
+        if [[ ($message_size -le  $char_limit)  && ( -n $recipient ) ]]; then
+            echo "$message_size"
+            cat _msg_$surname | /usr/sbin/ssmtp $recipient
+        else
+            echo "Message above Character Limit: $message_size"
+            echo "OR recipient is null"
+        fi
+
+        if [[ "$DEBUG" == "1" ]]; then
+            echo "DEBUG: send_message"
+            echo "DEBUG: $number"
+            echo "DEBUG: $name"
+            echo "DEBUG: $surname"
+            echo "DEBUG: $recipient"
+            cat   _msg_$surname
+            echo "DEBUG: Return status $?"
+        fi
+
+    done < "$1"
 }
 
 
 ###Main
-if [[  $# -ne 2 ]]; then
-    echo "Usage: xchng-rate <From> <TO>"
-    echo "Description: Get the latest currency rate using xchng-rate"
-    return
+if [[  ( $# -ne 1 ) || ( -z $1 ) ]]; then
+    echo "Usage: xchng-rate <filename>"
+    echo "Description: Get the latest currency rate from USD to INR using xchng-rate \
+          filename = consists for <name> <lastname> <phone number> seperated by spaces each entry"
+    exit
 fi
 
-getCurrencyExchangeRate $1 $2
+if [[ -f $1 ]]; then
+    phone_db=$1
+else
+    exit 1
+fi
 
+
+get_curr_xchangerate
+
+construct_message
+
+send_message $phone_db
+
+#remove msg.txt after execution
+rm _msg_*
+rm msg

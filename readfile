@@ -1,0 +1,16 @@
+#!/bin/bash
+# @author: Vishal Verma
+# @date: 05-23-2018
+# Keep this file in home/<user>/bin dir
+# file: /bin/readfile
+ 
+###Main
+if [[ ( $# -ne 1 ) || ( -z readfile ) ]]; then
+    echo "Usage: ./readfile <filename>"
+    echo "Description: Reads files and stores it in an array"
+    return
+fi
+
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo "Text read from file: $line"
+done < "$1"
