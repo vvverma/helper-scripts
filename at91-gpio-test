@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+# @author: Vishal Verma
+# @date: 06-13-2018
+# Keep this file in home/<user>/bin dir
+# file: /bin/test-at91-gpio
+write_value=1
+list="export unexport write read"
+for func in $list
+do
+    for i in PA PB PC PD PE
+	do
+		j=0
+    	while [ $j -lt 32 ]
+		do
+			if [ "$func" = "write" ]; then
+				echo "$func $i$j $write_value"
+				./at91-gpio-util $func $i$j $write_value
+			else
+				echo  "$func $i$j"
+				./at91-gpio-util $func $i$j
+			fi
+			 j=$(($j+1))
+		done
+	done
+done
+
