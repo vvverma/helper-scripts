@@ -1,0 +1,117 @@
+#!/usr/bin/env sh
+# @author: Vishal Verma
+# @date: 06-13-2018
+#
+# file: /bin/at91-gpio-util.sh
+#TODO check if the given pin is set to gpio or not
+SYSFS=/sys/class/gpio
+
+#print help
+print_usage(){
+echo
+echo "Description: Script reads and writes into the specified gpio port pins of at91 arch"
+echo "Required positional Arguments"
+echo "gpio <read|write> <GPIO Port> <value>"
+echo "read -- Read the given GPIO pin value"
+echo "write -- Write the given GPIO pin value"
+echo "export -- Only export the given GPIO pin in $SYSFS"
+echo "unexport -- Only unexport the given GPIO pin in $SYSFS"
+echo "Note -- Write direction is set as output"
+echo "     -- Read direction is set as input"
+exit 0
+}
+
+#Initialize pin
+init_pin(){
+arg=$1
+port=${arg:0:2}
+pin=${arg:2}
+
+if [ $pin -gt 31 ];then
+	echo "Pin number should be less than 32"
+	exit 0
+fi
+case $port in
+	PA)
+		dir="pioA"$pin
+		exp_num=$pin;;
+
+	PB)
+		dir="pioB"$pin
+		exp_num=`expr $pin + 32`;;
+
+	PC)
+		dir="pioC"$pin
+		exp_num=`expr $pin + 64`;;
+
+	PD)
+		dir="pioD"$pin
+		exp_num=`expr $pin + 96`;;
+
+	PE)
+		dir="pioE"$pin
+		exp_num=`expr $pin + 128`;;
+
+	*) print_usage;;
+esac
+}
+
+###MAIN
+if [ "$1" = "" ] || [ $# -lt 1 ]; then
+    print_usage
+elif [ "$1" = "export" ]; then
+
+	if [ -z "$2" ]; then
+		print_usage
+	else
+		init_pin $2
+	fi
+
+	if [  -d "$SYSFS/$dir" ]; then
+		echo "$SYSFS/$dir already exported"
+	else
+		echo $exp_num > $SYSFS/export
+	fi
+
+elif [ "$1" = "unexport" ]; then
+
+	if [ -z "$2" ]; then
+		print_usage
+	else
+		init_pin $2
+	fi
+
+	if [  -d "$SYSFS/$dir" ]; then
+		echo $exp_num > $SYSFS/unexport
+	else
+		echo "$SYSFS/$dir already unexported"
+	fi
+
+elif [ "$1" = "write" ];then
+
+    if [ "$3" = "" ];then
+        print_usage
+    else
+		init_pin $2
+        if [ ! -d "$SYSFS/$dir" ]; then
+		    echo $exp_num > $SYSFS/export
+	    fi
+        echo out > $SYSFS/$dir/direction
+		echo "$2: Direction -> OUT"
+		echo $3 > $SYSFS/$dir/value
+		echo "$2: Value written -> $3"
+    fi
+
+elif [ "$1" = "read" ];then
+    init_pin $2
+    if [ ! -d "$SYSFS/$dir" ]; then
+		echo $exp_num > $SYSFS/export
+	fi
+        echo in > $SYSFS/$dir/direction
+		echo "$2: Direction -> IN"
+        echo -n "$2: Value read -> "
+		cat $SYSFS/$dir/value
+		echo
+else
+    print_usage
+fi
